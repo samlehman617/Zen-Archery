@@ -1,0 +1,96 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zen Archery</title>
+    <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
+    <script src="game.js"></script>
+    <style>
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            var canvas = document.getElementById("canvas");
+            var engine = new BABYLON.Engine(canvas, true);
+
+            var createScene = function () {
+                // Create scene
+                var scene = new BABYLON.Scene(engine);
+                scene.clearColor = new BABYLON.Color3(.90, .90, .90);
+
+                // Create camera
+                var camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 4, 4, BABYLON.Vector3.Zero(), scene);
+                camera.attachControl(canvas, true);
+
+                // Create lighting
+                var light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(1, 1, 0), scene);
+                var light2 = new BABYLON.PointLight("light2", new BABYLON.Vector3(0, 1, -1), scene);
+
+                // Ground
+                var ground = BABYLON.MeshBuilder.CreateGround("ground", {}, scene);
+
+                // Create shapes
+                var material = new BABYLON.StandardMaterial("material1", scene);
+                material.wireframe = true;
+                ground.material = material;
+                // Create target
+                var target = [
+                    new BABYLON.Mesh.CreateCylinder("target0", 1, scene),
+                    new BABYLON.Mesh.CreateCylinder("target1", 1, scene),
+                    new BABYLON.Mesh.CreateCylinder("target2", 1, scene),
+                    new BABYLON.Mesh.CreateCylinder("target3", 1, scene)
+                ];
+                var targetPosition = [
+                    new BABYLON.Vector3(1, 0, 1),
+                    new BABYLON.Vector3(1, 1, 1.1),
+                    new BABYLON.Vector3(1, 2, 1.2),
+                    new BABYLON.Vector3(1, 3, 1.3)
+                ];
+                var targetMaterial = [
+                    new BABYLON.StandardMaterial("targetMaterial", scene),
+                    new BABYLON.StandardMaterial("targetMaterial", scene),
+                    new BABYLON.StandardMaterial("targetMaterial", scene),
+                    new BABYLON.StandardMaterial("targetMaterial", scene)
+                ];
+                targetMaterial[0].diffuseColor = new BABYLON.Color3.White();
+                targetMaterial[1].diffuseColor = new BABYLON.Color3.Black();
+                targetMaterial[2].diffuseColor = new BABYLON.Color3.Blue();
+                targetMaterial[3].diffuseColor = new BABYLON.Color3.Yellow();
+
+                for (i = 0; i < target.len; i++) {
+                    target[i].material = targetMaterial[i];
+                    target[i].position = targetPosition[i];
+                    target[i].rotate(BABYLON.Axis.X, Math.PI / 2, BABYLON.Space.WORLD);
+                }
+                // target.material = targetMaterial;
+                // target.position = targetPosition;
+                //target.height = 2;
+                // target.rotate(BABYLON.Axis.X, Math.PI / 2, BABYLON.Space.WORLD);
+
+                var box2 = BABYLON.Mesh.CreateBox("Box2", 4.0, scene);
+                box2.material = material;
+                box2.position = new BABYLON.Vector3(0, 3, 0);
+
+
+
+                return scene;
+            }
+            var scene = createScene();
+
+            // Render loop
+            engine.runRenderLoop(function () {
+                scene.render();
+            });
+        });
+    </script>
+</body>
+
+</html>
