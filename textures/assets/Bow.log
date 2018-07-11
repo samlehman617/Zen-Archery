@@ -1,0 +1,37 @@
+Exporter version: 5.6.3, Blender version: 2.79 (sub 0)
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		export scope        :  ALL
+		inline textures     :  false
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		texture directory   :  C:\Users\samle\Google Drive\Documents\Code\Zen Archery\textures\
+	Python World class constructor completed
+	processing begun of mesh:  Bow
+		processing begun of Standard material:  Bow
+			Diffuse texture found "Kd"
+				Image texture found, type:  diffuseTexture, mapped using: "UVMap"
+	WARNING: Error encountered processing image file:  , Error:  'C:\\Users\\samle\\Google Drive\\Documents\\Code\\Zen Archery\\textures\\Bow_Quiver_Arrow_d.dds' and 'C:\\Users\\samle\\Google Drive\\Documents\\Code\\Zen Archery\\textures\\Bow_Quiver_Arrow_d.dds' are the same file
+		num positions      :  1243
+		num normals        :  1243
+		num uvs            :  2486
+		num uvs2           :  0
+		num colors         :  0
+		num indices        :  3120
+	processing begun of mesh:  Cube
+		processing begun of Standard material:  Material
+		num positions      :  8
+		num normals        :  8
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num indices        :  36
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of light (POINT):  Lamp
+========= Writing of scene file started =========
+========= Writing of scene file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.2461 secs

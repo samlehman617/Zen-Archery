@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Zen Archery</title>
     <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
-    <script src="game.js"></script>
     <style>
         #canvas {
             width: 100%;
@@ -16,7 +15,8 @@
 
 <body>
     <canvas id="canvas"></canvas>
-    <script>
+    <script src="game.js"></script>
+    <!-- <script>
         window.addEventListener("DOMContentLoaded", function () {
             var canvas = document.getElementById("canvas");
             var engine = new BABYLON.Engine(canvas, true);
@@ -27,8 +27,7 @@
                 scene.clearColor = new BABYLON.Color3(.90, .90, .90);
 
                 // Create camera
-                var camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 4, 4, BABYLON.Vector3.Zero(), scene);
-                camera.attachControl(canvas, true);
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, -1, BABYLON.Vector3.Zero(), scene); camera.attachControl(canvas, true);
 
                 // Create lighting
                 var light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(1, 1, 0), scene);
@@ -43,10 +42,10 @@
                 ground.material = material;
                 // Create target
                 var target = [
-                    new BABYLON.Mesh.CreateCylinder("target0", 1, scene),
-                    new BABYLON.Mesh.CreateCylinder("target1", 1, scene),
-                    new BABYLON.Mesh.CreateCylinder("target2", 1, scene),
-                    new BABYLON.Mesh.CreateCylinder("target3", 1, scene)
+                    new BABYLON.Mesh.CreateCylinder("target0", {}, scene),
+                    new BABYLON.Mesh.CreateCylinder("target1", {}, scene),
+                    new BABYLON.Mesh.CreateCylinder("target2", {}, scene),
+                    new BABYLON.Mesh.CreateCylinder("target3", {}, scene)
                 ];
                 var targetPosition = [
                     new BABYLON.Vector3(1, 0, 1),
@@ -75,11 +74,9 @@
                 //target.height = 2;
                 // target.rotate(BABYLON.Axis.X, Math.PI / 2, BABYLON.Space.WORLD);
 
-                var box2 = BABYLON.Mesh.CreateBox("Box2", 4.0, scene);
-                box2.material = material;
-                box2.position = new BABYLON.Vector3(0, 3, 0);
-
-
+                // var box2 = BABYLON.Mesh.CreateBox("Box2", 4.0, scene);
+                // box2.material = material;
+                // box2.position = new BABYLON.Vector3(0, 3, 0);
 
                 return scene;
             }
@@ -90,7 +87,7 @@
                 scene.render();
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
